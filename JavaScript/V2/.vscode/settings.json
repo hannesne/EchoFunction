@@ -8,5 +8,10 @@
     "obj": true,
     "bin": true
   },
-  "debug.internalConsoleOptions": "neverOpen"
+  "debug.internalConsoleOptions": "neverOpen",
+  "mocha.files.ignore": [
+    "**/.git/**/*",
+    "**/node_modules/**/*",
+    "**/test/fixtures/**/*"
+  ]
 }

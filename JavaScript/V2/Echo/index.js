@@ -1,16 +1,24 @@
 module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
+    var expectedMessage, expectedResult;
+    var response = {};
 
-    if (req.query.name || (req.body && req.body.name)) {
-        context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: "Hello " + (req.query.name || req.body.name)
-        };
+    if (expectedResult = extractParameter(req, "result"))
+    {
+        response.status = expectedResult;
     }
-    else {
-        context.res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
+    if (expectedMessage = extractParameter(req, "message"))
+    {
+        response.body = expectedMessage;
     }
+    
+    context.log.info("Executing Echo Function with following parameters:\nmessage - %s\nresult - %s", expectedMessage, expectedResult);
+    context.res = response;
 };
+
+function extractParameter(request, parameterName)
+{
+    if (request.query && request.query[parameterName])
+        return request.query[parameterName];
+    if (request.body && request.body[parameterName])
+        return request.body[parameterName];
+}

@@ -337,3 +337,7 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+
+# Javascript - Mocha testing framework
+.nyc_output/
+coverage/
