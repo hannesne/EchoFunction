@@ -14,4 +14,6 @@
     "**/node_modules/**/*",
     "**/test/fixtures/**/*"
   ],
+  "mocha.subdirectory": "Test",
+  "mocha.files.glob": "*.js"
 }
