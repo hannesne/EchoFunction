@@ -16,13 +16,33 @@ public class Echo {
         context.getLogger().info("Java HTTP trigger processed a request.");
 
         Map<String, String> queryParameters = request.getQueryParameters();
-        Optional<String> body = request.getBody();
+        BodyPayload payload = loadPayload(request);
+        HttpStatus resultCode = loadResultCode(queryParameters, payload);
+        Object message = loadMessage(queryParameters, payload);
+        
+
+        return request.createResponseBuilder(resultCode).body(message).build();
+    }
+
+	private BodyPayload loadPayload(HttpRequestMessage<Optional<String>> request) {
+		Optional<String> body = request.getBody();
         BodyPayload payload = null;
         if (body.isPresent()) {
             payload = new Gson().fromJson(body.get(), BodyPayload.class);
         }
+        return payload;
+    }
 
-        HttpStatus resultCode = null; 
+    private Object loadMessage(Map<String, String> queryParameters, BodyPayload payload) {
+        Object message = queryParameters.get("message");
+        if (message == null && payload != null) {
+            message = payload.message;
+        }
+        return message;
+    }
+
+    private HttpStatus loadResultCode(Map<String, String> queryParameters, BodyPayload payload) {
+        HttpStatus resultCode = null;
         
         String resultString = queryParameters.get("result");
         if (resultString != null) {
@@ -38,24 +58,7 @@ public class Echo {
         if (resultCode == null) {
             resultCode = HttpStatus.OK;
         }
-
-        Object message = queryParameters.get("message");
-        if (message == null && payload != null) {
-            message = payload.message;
-        }
-        
-
-        return request.createResponseBuilder(resultCode).body(message).build();
-
-        // Parse query parameter
-        // String query = request.getQueryParameters().get("name");
-        // String name = request.getBody().orElse(query);
-
-        // if (name == null) {
-        //     return request.createResponseBuilder(HttpStatus.BAD_REQUEST).body("Please pass a name on the query string or in the request body").build();
-        // } else {
-        //     return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
-        // }
+        return resultCode;
     }
 
     public static class BodyPayload {
