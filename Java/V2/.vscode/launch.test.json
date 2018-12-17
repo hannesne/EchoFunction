@@ -1,0 +1,30 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "echofunction",
+                "projectName": "echofunction",
+                "workingDirectory": "c:\\Dev\\EchoFunction\\Java\\V2",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "echofunction",
+                "projectName": "echofunction",
+                "workingDirectory": "c:\\Dev\\EchoFunction\\Java\\V2",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}
