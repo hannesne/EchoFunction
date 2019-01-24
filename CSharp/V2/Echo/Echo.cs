@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Internal;
 using Microsoft.AspNetCore.Mvc.Formatters.Internal;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Azure.WebJobs.Description;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
@@ -19,7 +20,8 @@ namespace Echo
     {
         [FunctionName("Echo")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "Echo/{message?}")] HttpRequest req,
+            string message,
             ILogger log)
         {
             string requestBody;
@@ -28,7 +30,7 @@ namespace Echo
                 requestBody = await streamReader.ReadToEndAsync();
             }
 
-            string expectedMessage = await ExtractParameter(req, "message", requestBody);
+            string expectedMessage = message ?? await ExtractParameter(req, "message", requestBody);
             string expectedResult = await ExtractParameter(req, "result", requestBody);
 
             if (!Enum.TryParse(expectedResult, out HttpStatusCode httpResult))
