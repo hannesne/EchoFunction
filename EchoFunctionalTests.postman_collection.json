@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "3541e6ec-62ad-454d-bdca-03e79c4c5f0f",
+		"_postman_id": "0084abbe-415d-4338-ad1c-45ac006253df",
 		"name": "EchoFunction functional tests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -39,17 +39,14 @@
 					"raw": "{\n\t\"result\":400,\n\t\"message\":\"booya!\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:7071/api/echo",
+					"raw": "http://{{HOST}}/api/echo",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{HOST}}"
 					],
-					"port": "7071",
 					"path": [
 						"api",
 						"echo"
-					],
-					"query": [
 					]
 				}
 			},
@@ -89,17 +86,14 @@
 					"raw": "{\n\t\"result\":400\n}"
 				},
 				"url": {
-					"raw": "http://localhost:7071/api/Echo",
+					"raw": "http://{{HOST}}/api/Echo",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{HOST}}"
 					],
-					"port": "7071",
 					"path": [
 						"api",
 						"Echo"
-					],
-					"query": [
 					]
 				}
 			},
@@ -142,12 +136,11 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:7071/api/echo?result=300",
+					"raw": "http://{{HOST}}/api/echo?result=300",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{HOST}}"
 					],
-					"port": "7071",
 					"path": [
 						"api",
 						"echo"
@@ -199,12 +192,11 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:7071/api/echo?result=300&message=booya!",
+					"raw": "http://{{HOST}}/api/echo?result=300&message=booya!",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{HOST}}"
 					],
-					"port": "7071",
 					"path": [
 						"api",
 						"echo"
@@ -260,17 +252,14 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:7071/api/echo?",
+					"raw": "http://{{HOST}}/api/echo",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{HOST}}"
 					],
-					"port": "7071",
 					"path": [
 						"api",
 						"echo"
-					],
-					"query": [
 					]
 				}
 			},
@@ -310,17 +299,14 @@
 					"raw": "{\n\t\"message\":\"booya!\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:7071/api/echo",
+					"raw": "http://{{HOST}}/api/echo",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{HOST}}"
 					],
-					"port": "7071",
 					"path": [
 						"api",
 						"echo"
-					],
-					"query": [
 					]
 				}
 			},
@@ -363,12 +349,11 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:7071/api/echo?message=booya!",
+					"raw": "http://{{HOST}}/api/echo?message=booya!",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{HOST}}"
 					],
-					"port": "7071",
 					"path": [
 						"api",
 						"echo"
@@ -417,12 +402,11 @@
 					"raw": "{\n\t\"result\":300\n}"
 				},
 				"url": {
-					"raw": "http://localhost:7071/api/echo?message=booya!",
+					"raw": "http://{{HOST}}/api/echo?message=booya!",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{HOST}}"
 					],
-					"port": "7071",
 					"path": [
 						"api",
 						"echo"
@@ -462,9 +446,9 @@
 	],
 	"variable": [
 		{
-			"id": "e5a9680a-b1c5-458f-9c15-9145b77dabc9",
-			"key": "BaseUrl",
-			"value": "http://localhost:7071/api/echo",
+			"id": "833902ee-c16c-4f3d-b76d-f21f86d61f37",
+			"key": "HOST",
+			"value": "localhost:7071",
 			"type": "string"
 		}
 	]
