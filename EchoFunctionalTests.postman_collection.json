@@ -1,0 +1,526 @@
+{
+	"info": {
+		"_postman_id": "3541e6ec-62ad-454d-bdca-03e79c4c5f0f",
+		"name": "EchoFunction functional tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Body variables test (Both)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "feca0095-2141-46b5-b865-32c7fe0aad5e",
+						"exec": [
+							"pm.test(\"Body is booya\", function () {",
+							"    pm.response.to.have.body(\"booya2!\");",
+							"});",
+							"pm.test(\"Status code is 400\" , function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/javascript",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"result\":400,\n\t\"message\":\"booya2!\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7071/api/echo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"api",
+						"echo"
+					],
+					"query": [
+						{
+							"key": "result",
+							"value": "300",
+							"disabled": true
+						},
+						{
+							"key": "message",
+							"value": "booya!",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Body variables test (result)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4a7c250b-1542-4da9-adb9-03aff731d0bf",
+						"exec": [
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body(\"\");",
+							"});",
+							"pm.test(\"Status code is 400\" , function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/javascript",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"result\":400\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7071/api/Echo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"api",
+						"Echo"
+					],
+					"query": [
+						{
+							"key": "result",
+							"value": "300",
+							"disabled": true
+						},
+						{
+							"key": "message",
+							"value": "booya!",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query parameters test (result)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "feca0095-2141-46b5-b865-32c7fe0aad5e",
+						"exec": [
+							"pm.test(\"Body is booya\", function () {",
+							"    pm.response.to.have.body(\"\");",
+							"});",
+							"pm.test(\"Status code is 400\" , function () {",
+							"    pm.response.to.have.status(300);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/javascript",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:7071/api/echo?result=300",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"api",
+						"echo"
+					],
+					"query": [
+						{
+							"key": "result",
+							"value": "300"
+						},
+						{
+							"key": "message",
+							"value": "booya!",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query parameters test (both)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "feca0095-2141-46b5-b865-32c7fe0aad5e",
+						"exec": [
+							"pm.test(\"Body is booya\", function () {",
+							"    pm.response.to.have.body(\"booya!\");",
+							"});",
+							"pm.test(\"Status code is 400\" , function () {",
+							"    pm.response.to.have.status(300);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/javascript",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:7071/api/echo?result=300&message=booya!",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"api",
+						"echo"
+					],
+					"query": [
+						{
+							"key": "result",
+							"value": "300"
+						},
+						{
+							"key": "message",
+							"value": "booya!"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "No Parameters test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "feca0095-2141-46b5-b865-32c7fe0aad5e",
+						"exec": [
+							"pm.test(\"Body is booya\", function () {",
+							"    pm.response.to.have.body(\"\");",
+							"});",
+							"pm.test(\"Status code is 400\" , function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/javascript",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:7071/api/echo?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"api",
+						"echo"
+					],
+					"query": [
+						{
+							"key": "result",
+							"value": "300",
+							"disabled": true
+						},
+						{
+							"key": "message",
+							"value": "booya!",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Body variables test (message)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "feca0095-2141-46b5-b865-32c7fe0aad5e",
+						"exec": [
+							"pm.test(\"Body is booya\", function () {",
+							"    pm.response.to.have.body(\"booya2!\");",
+							"});",
+							"pm.test(\"Status code is 400\" , function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/javascript",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"message\":\"booya2!\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7071/api/echo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"api",
+						"echo"
+					],
+					"query": [
+						{
+							"key": "result",
+							"value": "300",
+							"disabled": true
+						},
+						{
+							"key": "message",
+							"value": "booya!",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query parameters test (message)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "feca0095-2141-46b5-b865-32c7fe0aad5e",
+						"exec": [
+							"pm.test(\"Body is booya\", function () {",
+							"    pm.response.to.have.body(\"booya!\");",
+							"});",
+							"pm.test(\"Status code is 400\" , function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/javascript",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:7071/api/echo?message=booya!",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"api",
+						"echo"
+					],
+					"query": [
+						{
+							"key": "result",
+							"value": "300",
+							"disabled": true
+						},
+						{
+							"key": "message",
+							"value": "booya!"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mixed variables test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "feca0095-2141-46b5-b865-32c7fe0aad5e",
+						"exec": [
+							"pm.test(\"Body is booya\", function () {",
+							"    pm.response.to.have.body(\"booya!\");",
+							"});",
+							"pm.test(\"Status code is 300\" , function () {",
+							"    pm.response.to.have.status(300);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/javascript",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"result\":300\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7071/api/echo?message=booya!",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"api",
+						"echo"
+					],
+					"query": [
+						{
+							"key": "result",
+							"value": "300",
+							"disabled": true
+						},
+						{
+							"key": "message",
+							"value": "booya!"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "7277529f-bbf0-4e2b-ada0-cfc4003da15f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "ee2f5b49-cfa6-4fff-ac93-8e4cf664c4e4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "e5a9680a-b1c5-458f-9c15-9145b77dabc9",
+			"key": "BaseUrl",
+			"value": "http://localhost:7071/api/echo",
+			"type": "string"
+		}
+	]
+}
