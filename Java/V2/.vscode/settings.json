@@ -3,5 +3,7 @@
   "azureFunctions.projectLanguage": "Java",
   "azureFunctions.templateFilter": "Verified",
   "debug.internalConsoleOptions": "neverOpen",
-  "java.configuration.updateBuildConfiguration": "automatic"
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "azureFunctions.deploySubpath": "target/azure-functions/echofunction/",
+  "azureFunctions.preDeployTask": "package"
 }
