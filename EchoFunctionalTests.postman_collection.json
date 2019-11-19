@@ -226,8 +226,8 @@
 							"pm.test(\"Body is empty\", function () {",
 							"    pm.response.to.have.body(\"\");",
 							"});",
-							"pm.test(\"Status code is 200\" , function () {",
-							"    pm.response.to.have.status(200);",
+							"pm.test(\"Status code is successful (20x)\" , function () {",
+							"    pm.response.to.be.success;",
 							"});"
 						],
 						"type": "text/javascript"
@@ -446,7 +446,7 @@
 	],
 	"variable": [
 		{
-			"id": "833902ee-c16c-4f3d-b76d-f21f86d61f37",
+			"id": "8aebdc72-cb29-47eb-9845-ef5f9379b11e",
 			"key": "HOST",
 			"value": "localhost:7071",
 			"type": "string"
